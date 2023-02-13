@@ -1,0 +1,21 @@
+/**********************************************
+Workshop 5
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 26/06/2022
+**********************************************/
+
+By completing this workshop 5, I learned coding techniques, classes, polymorphism, inheritance, Exception Handling and the JavaFx library.
+
+Javafx library is very interesting to learn. it provides a GUI interface where users can put inputs. I learned many things in the JavaFX library. I have implemented add, update, next, previous, last and first buttons by using the JavaFX library. I have also implemented the textbox in this workshop where user can put their input.
+
+Steps to run program:
+
+Step 1: Go to src/application/Main.java
+Step 2: Click run button and form will be open as a output.
+Step 3: Put inputs in that form based on your requirement and get the result.

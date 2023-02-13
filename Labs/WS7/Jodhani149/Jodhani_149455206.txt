@@ -1,0 +1,24 @@
+/**********************************************
+Workshop 7
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 18/07/2022
+**********************************************/
+
+By completing this workshop 7, I learned about the map concept using hashmap and did much practice with exceptional handling, arrays, methods and inheritance.
+
+In task 2, we have entered data and matched it with the hashmap, so when a user enters data about the country name then it will find the capital of that country by matching entered country name.
+
+
+
+Steps to run program:
+Step 1: For Task 1, Go to Task 1 package, Click on Sorting.java and run.
+Step 2: Enter file name to get output.
+Step 3: For Task 2, Go to Task 2 package, Click on Capital.java and run.
+Step 4: Enter country name to get capital of that country.
+

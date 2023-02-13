@@ -1,0 +1,20 @@
+/**********************************************
+Workshop 6
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 10/07/2022
+**********************************************/
+
+By completing this workshop 6, I learn and gain many new concepts. I gain many practice with JavaFx library. this library really helps to achieve gui interface.
+I also learned about lambda expressions in task 2 which is really helpful to understand this concept. with the help of the professor's lecture, I can successfully complete this workshop 6. 
+
+Steps to run program:
+
+Step 1: For task 1, go to task1 package and click on main.java and run.
+
+Step 2: For task 2, go to task2 package and click on ArrayCal.java and run it.

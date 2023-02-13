@@ -1,0 +1,24 @@
+/**********************************************
+Workshop 1
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 29/05/2022
+**********************************************/
+
+In this workshop, I practice the various concepts such as creating a class, methods and array. I learned more in the eclipse software.
+I learned from the professor that how to create the classes during the lecture period. Also, understand the flow of java. I have also created the methods and arrays during this workshop.
+Since this was my first workshop in java, I have learned and understood many things in the eclipse and successfully completed workshop 1. Thanks to the professor who help to understand the concepts during the lecture period.
+
+Steps to run program:
+1.	Open the programs in eclipse.
+2.	For Task1 – go to Task1 then double click on the MaxLocation.java file and press run button.
+3.	Enter the rows and columns and press Enter.
+4. 	Enter the data to assign the two dimensional array and press Enter.
+5.	You will see the result.
+6.	For Task2 – go to Task2 then double click on the diceGame.java file and press run button.
+5.	You will see the result or output.

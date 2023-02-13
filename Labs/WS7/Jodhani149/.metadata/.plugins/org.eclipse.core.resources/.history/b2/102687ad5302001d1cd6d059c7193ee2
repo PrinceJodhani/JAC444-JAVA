@@ -1,0 +1,114 @@
+package Task2;
+
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Vector;
+
+public class ArrayCalc {
+
+    public static void main(String[] args) {
+        System.out.println("\nEnter the values for calculation.(Enter 0 to submit.)");
+
+        Vector<Double> n_val = new Vector<>();
+        
+        double n_valid = 1;
+
+        while (n_valid != 0) 
+        {
+            System.out.print("Enter the value for array: ");
+            n_valid = readDouble();
+            if (n_valid != 0) 
+            {
+                n_val.add(n_valid);
+            }
+        }
+
+        double[] d_arr = new double[n_val.size()];
+        
+        for (int i = 0; i < n_val.size(); i++) 
+        {
+            d_arr[i] = n_val.get(i);
+        }
+
+        System.out.println("\n\nArray Calculations:");
+        System.out.println("Maximum value of the array: " + Max.apply(d_arr));
+        System.out.println("Minimum value of the array: " + Min.apply(d_arr));
+        System.out.println("Addition of all the values: " + Add.apply(d_arr));
+        System.out.println("Average of the values: " + Avg.apply(d_arr));
+        System.out.print("\nEnter the value from your array to count it: ");
+        
+        double sValue = readDouble();
+        
+        ArrayProcessor findFunction = counter(sValue);
+        System.out.println(sValue + " was entered " + findFunction.apply(d_arr) + " times.\n");
+        System.out.println("Thank You!!, Goodbye.");
+    }
+    
+    public static final ArrayProcessor Max = (arr) -> 
+    {
+        Arrays.sort(arr);
+        return arr[arr.length - 1];
+    };
+    
+    public static final ArrayProcessor Min = (arr) -> 
+    {
+        Arrays.sort(arr);
+        return arr[0];
+    };
+    
+
+  
+    public static final ArrayProcessor Add = (arr) -> 
+    {
+        double tot_data = 0;
+        for (double num : arr)
+        {
+            tot_data += num;
+        }
+        return tot_data;
+    };
+
+   
+    public static ArrayProcessor counter(double value)
+    {
+        ArrayProcessor cnt = (arr) -> 
+        {
+            int count = 0;
+            for (double num : arr) 
+            {
+                if (num == value) 
+                {
+                    count++;
+                }
+            }
+            return count;
+        };
+        return cnt;
+    }
+    public static final ArrayProcessor Avg = (arr) -> 
+    {
+        return (Add.apply(arr) / arr.length);
+    };
+    
+    private static double readDouble() {
+        @SuppressWarnings("resource")
+		Scanner scn = new Scanner(System.in);
+        double m_val = 1;
+        boolean crt = false;
+        while (!crt) 
+        {
+            try 
+            {
+                m_val = scn.nextDouble();
+                crt = true;
+            } 
+            catch (Exception ignored) 
+            {
+                scn.next();
+                System.out.print("Please Try again: ");
+                crt = false;
+            }
+        }
+        return m_val;
+    }
+}

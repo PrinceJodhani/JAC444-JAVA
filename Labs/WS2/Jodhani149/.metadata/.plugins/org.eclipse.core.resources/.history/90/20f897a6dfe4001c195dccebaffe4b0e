@@ -1,0 +1,198 @@
+package workshop2;
+
+import java.util.*;
+public class IncomeTax {
+
+	    public static void option0()
+	    {
+	        Scanner scnr = new Scanner (System.in);
+	        double tax=0;
+	        System.out.println("0 - single filer");
+	        System.out.println("1 - married jointly or qualifying widow(er)");
+	        System.out.println("2 - married seperately");
+	        System.out.println("3 - head of household");
+	        System.out.print("Enter the filing status: ");
+	        int filingStatus = scnr.nextInt();
+	        System.out.print("Enter the Taxable Income: $");
+	        double taxableIncome = scnr.nextDouble();
+
+	        if (filingStatus == 0)
+	        tax = SINGLE_FILER(taxableIncome);
+
+	        if (filingStatus == 1)
+	        tax = MARRIED_JOINTLY_QUALIFIED_WIDOWER(taxableIncome);
+	        if (filingStatus == 2)
+	        tax = MARRIED_SEPERATELY(taxableIncome);
+
+	        if (filingStatus == 3)
+	        tax= HEAD_OF_HOUSEHOLD(taxableIncome);
+
+	        System.out.println("Tax is: $"+tax);
+
+
+	    }
+
+	    
+	    public static double MARRIED_JOINTLY_QUALIFIED_WIDOWER(double taxableIncome)
+	    {
+	        double tax=0;
+	        if (taxableIncome <= 45200)
+	        {
+	        	tax = 0.15*taxableIncome;
+	        }
+	        else if (taxableIncome > 45200 && taxableIncome <= 109250)
+	        {
+	        	tax = (0.15*45200)+(0.275*(taxableIncome-45200));
+	        }
+	        else if (taxableIncome > 109250 && taxableIncome <= 166500)
+	        {
+	        	tax = (0.15*45200)+(0.275*(109250-45200))+(0.305*(taxableIncome-109250));
+	        }
+	        else if (taxableIncome > 166500 && taxableIncome <= 297350)
+	        {
+	        	tax = (0.15*45200)+(0.275*(109250-45200))+(0.305*(166500-109250)) + (0.355*(taxableIncome - 136750));
+	        }
+	        else if (taxableIncome>297350)
+	        {
+	        	tax = (0.15*45200)+(0.275*(109250-45200))+(0.305*(166500-109250)) + (0.355*(297351 - 166500)) + (0.391*(taxableIncome-297351));
+	        }
+	            return tax;
+	    }
+	    
+	    public static double SINGLE_FILER(double taxableIncome)
+	    {
+	        double tax=0;
+	        if (taxableIncome <= 27050)
+	        {
+	                tax = 0.15*taxableIncome;
+	        }
+	        else if (taxableIncome > 27050 && taxableIncome <= 65550)
+	        {
+	        	tax = (0.15*27050)+(0.275*(taxableIncome-27050));
+	        }
+	        else if (taxableIncome > 65550 && taxableIncome <= 136750)
+	        {
+	        	tax = (0.15*27050)+(0.275*(65550-27050))+(0.305*(taxableIncome-65550));
+	        }
+	        else if (taxableIncome > 136750 && taxableIncome <= 297350)
+	        {
+	        	tax = (0.15*27050)+(0.275*(65550-27050))+(0.305*(136750-65550)) + (0.355*(taxableIncome - 136750));
+	        }
+	        else if (taxableIncome>297350)
+	        {
+	        	tax = (0.15*27050)+(0.275*(65550-27050))+(0.305*(136750-65550)) + (0.355*(297351 - 136750)) + (0.391*(taxableIncome-297351));
+	        }
+	        
+	        return tax;
+	    }
+
+
+
+	    public static double MARRIED_SEPERATELY(double taxableIncome)
+	    {
+	        double tax=0;
+	        
+	        if (taxableIncome <= 22600)
+	        {
+	                tax = 0.15*taxableIncome;
+	        }
+	        else if (taxableIncome > 22600 && taxableIncome <= 54625)
+	        {
+	        	tax = (0.15*22600)+(0.275*(taxableIncome-22600));
+	        }
+	        else if (taxableIncome > 54625 && taxableIncome <= 83250)
+	        {
+	        	tax = (0.15*22600)+(0.275*(54625-22600))+(0.305*(taxableIncome-54625));
+	        }
+	        else if (taxableIncome > 83250 && taxableIncome <= 148675)
+	        {
+	        	tax = (0.15*22600)+(0.275*(54625-22600))+(0.305*(83250-54625)) + (0.355*(taxableIncome - 136750));
+	        }
+	        else if (taxableIncome>148675)
+	        {
+	        	tax = (0.15*22600)+(0.275*(54625-22600))+(0.305*(83250-54625)) + (0.355*(148675 - 83250)) + (0.391*(taxableIncome-148675)); 
+	        }
+	                return tax;
+	    }
+
+	    public static double HEAD_OF_HOUSEHOLD(double taxableIncome)
+	    {
+	        double tax=0;
+	        if (taxableIncome <= 36250)
+	        {
+	            tax = 0.15*taxableIncome;
+	        }
+	        else if (taxableIncome > 36250 && taxableIncome <= 93650) 
+	        {
+	            tax = (0.15*36250)+(0.275*(taxableIncome-36250));
+	        }
+	               
+	        else if (taxableIncome > 93650 && taxableIncome <= 151650) 
+	        {
+	          	tax = (0.15*36250)+(0.275*(93650-36250))+(0.305*(taxableIncome-93650));
+	        }
+	        else if (taxableIncome > 151650 && taxableIncome <= 297350)
+	        {
+	            tax = (0.15*36250)+(0.275*(93650-36250))+(0.305*(151650-93650)) + (0.355*(taxableIncome - 136750));
+	        }
+	        else if (taxableIncome>297350)
+	        {
+	            tax = (0.15*36250)+(0.275*(93650-36250))+(0.305*(151650-93650)) + (0.355*(297350 - 151650)) + (0.391*(taxableIncome-297350));
+	        }
+	        return tax;
+	    }
+
+	    public static void option1()
+	    {
+	        Scanner scnr = new Scanner (System.in);
+	        
+	        System.out.print("Enter the amount From: $");
+	        double Limitf = scnr.nextDouble();
+	        
+	        System.out.print("Enter the amount To: $");
+	        double limitt = scnr.nextDouble();
+	        
+	        System.out.println("2001 tax tables for taxable incomes from $"+Limitf+" to $"+limitt);
+	        System.out.println("***********************************************************************");
+	        System.out.println("Taxable Income \t Single \t Married Joint or Qualifying widow(er) \t Married Seperately \t Head of House");
+	        System.out.println("***********************************************************************");
+	        
+	        double i;
+	        for (i=Limitf; i<=limitt; i+=1000.0)
+	        {
+	            double single = SINGLE_FILER(i);
+	            double m_jointly = MARRIED_JOINTLY_QUALIFIED_WIDOWER(i);
+	            double m_Seperately = MARRIED_SEPERATELY(i);
+	            double h_houseHold = HEAD_OF_HOUSEHOLD(i);
+	            System.out.println(i+"\t"+single+"\t"+m_jointly+"\t"+m_Seperately+"\t"+h_houseHold);
+	        }
+	        
+	        System.out.println("\n2009 tax tables for taxable incomes from $"+Limitf+" to $"+limitt);
+	        System.out.println("*******************************************************************");
+	        System.out.println("Taxable Income \t Single \t Married Joint or Qualifying widow(er) \t Married Seperately \t Head of House");
+	        System.out.println("*******************************************************************");
+	       
+	        for (i=Limitf; i<=limitt; i+=1000.0)
+	        {
+	            double single = SINGLE_FILER(i);
+	            double m_jointly = MARRIED_JOINTLY_QUALIFIED_WIDOWER(i);
+	            double m_Seperately = MARRIED_SEPERATELY(i);
+	            double h_houseHold = HEAD_OF_HOUSEHOLD(i);
+	            System.out.println(i+"\t"+single+"\t"+m_jointly+"\t"+m_Seperately+"\t"+h_houseHold);
+	        }
+	    }
+	    
+	    public static void main(String args[])
+	    {
+	        Scanner scnr = new Scanner (System.in);
+	        System.out.println("0 - Compute personal Income Tax");
+	        System.out.println("1 - Print the tax tables for taxable incomes (with range)");
+	        System.out.println("2 - Exit");
+	        int choice = scnr.nextInt();
+	        if (choice == 0)
+	        option0();
+	        else if (choice == 1)
+	        option1();
+	    }
+	
+}

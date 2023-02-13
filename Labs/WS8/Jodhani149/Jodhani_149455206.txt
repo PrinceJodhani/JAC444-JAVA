@@ -1,0 +1,23 @@
+/**********************************************
+Workshop 8
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 25/07/2022
+**********************************************/
+
+By completing workshop 8, I learned and practice Java threads, collection framework and exception handling.
+
+I have practiced more about the really helpful threads. it running concurrently during the program. Professor's lecture is too helpful in successfully finishing my workshop.
+
+I have implemented the ReverseThread in my workshop. workshop 8 is really helpful to learn many new concepts.
+
+
+Steps To Run Program:
+Step 1: in Tasks package, click Test.java and run it
+Step 2: to run task 1, select option 1 and give appropriate input.
+Step 3: to run task 2, select option 2 and give appropriate input.

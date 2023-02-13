@@ -1,0 +1,67 @@
+/**********************************************
+Workshop 7
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 18/07/2022
+**********************************************/
+
+package Task2;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Capital {
+
+   public static void main(String[] args) {
+
+        Scanner scnr = new Scanner(System.in);
+
+        HashMap<String, String> mapping = new HashMap<String, String>();
+
+        mapping.put("India", "New Delhi");
+        mapping.put("Canada", "Ottawa");
+        mapping.put("Australia", "Canberra");
+        mapping.put("England", "London");
+        mapping.put("New Zealand", "Wellington");
+        mapping.put("Nepal", "Kathmandu");
+        mapping.put("Maldives", "Male");
+        mapping.put("United States", "Washington D.C.");
+        mapping.put("Greece", "Athens");
+        mapping.put("Egypt", "Cairo");
+        mapping.put("Japan", "Tokyo");
+        mapping.put("China", "Beijing");
+        mapping.put("Turkey", "Ankara");
+        mapping.put("Switzerland", "Bern");
+        mapping.put("France", "Paris");
+        mapping.put("Spain", "Madrid");
+        mapping.put("Thailand", "Bangkok");
+        mapping.put("Denmark", "Copenhagen");
+        mapping.put("Sweden", "Stockholm");
+        mapping.put("Italy", "Rome");
+        mapping.put("Poland", "Warsaw");
+        mapping.put("Portugal", "Lisbon");
+        mapping.put("Russia", "Moscow");
+        mapping.put("Scotland", "Edinburgh");
+        mapping.put("United Arab Emirates", "Abu Dhabi");
+                
+        System.out.print("\nEnter the country name to find the capital name of that country:  ");
+        
+        String search_country = scnr.next();
+
+        if (mapping.get(search_country) != null) 
+        {
+            System.out.printf("\n%s is the capital of %s.\n", mapping.get(search_country), search_country);
+        } 
+        else 
+        {
+            System.out.println("Sorry we couldn't find a capital of this country in our database.");
+        }
+
+       scnr.close();
+    }
+}

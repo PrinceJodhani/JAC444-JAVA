@@ -1,0 +1,54 @@
+package Task2;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Capital {
+
+   public static void main(String[] args) {
+
+        Scanner scnr = new Scanner(System.in);
+
+        HashMap<String, String> map = new HashMap<String, String>();
+
+        map.put("India", "New Delhi");
+        map.put("Canada", "Ottawa");
+        map.put("Australia", "Canberra");
+        map.put("England", "London");
+        map.put("New Zealand", "Wellington");
+        map.put("Nepal", "Kathmandu");
+        map.put("Maldives", "Male");
+        map.put("United States", "Washington D.C.");
+        map.put("Greece", "Athens");
+        map.put("Egypt", "Cairo");
+        map.put("Japan", "Tokyo");
+        map.put("China", "Beijing");
+        map.put("Turkey", "Ankara");
+        map.put("Switzerland", "Bern");
+        map.put("France", "Paris");
+        map.put("Spain", "Madrid");
+        map.put("Thailand", "Bangkok");
+        map.put("Denmark", "Copenhagen");
+        map.put("Sweden", "Stockholm");
+        map.put("Italy", "Rome");
+        map.put("Poland", "Warsaw");
+        map.put("Portugal", "Lisbon");
+        map.put("Russia", "Moscow");
+        map.put("Scotland", "Edinburgh");
+        map.put("United Arab Emirates", "Abu Dhabi");
+                
+        System.out.print("\nEnter the country name to find the capital name of that country:  ");
+        String country = scnr.next();
+
+        if (map.get(country) != null) 
+        {
+            System.out.printf("\n%s is the capital of %s.\n", map.get(country), country);
+        } 
+        else 
+        {
+            System.out.println("Sorry we couldn't find a capital of this country in our database.");
+        }
+
+       scnr.close();
+    }
+}

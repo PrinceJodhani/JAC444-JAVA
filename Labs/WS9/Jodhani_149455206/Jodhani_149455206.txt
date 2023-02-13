@@ -1,0 +1,22 @@
+/**********************************************
+Workshop 9
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 31/07/2022
+**********************************************/
+
+By completing this workshop 9, I have learned many concepts such as Java threads, socket programming and java networking.
+
+I have learned and doing many practice to complete this workshop. I have implemented the socket programming and java networking. I have made the server and client portal where users can send message through java networking. I gained many knowledge from professor's lecture about socket programming, java threads and java networking.
+
+
+Steps to Run Program:
+Step 1: Go to Task package, You will find 2 java class.
+Step 2: First, go to server.java and run it.
+Step 3: Second, got to user.java and run it.
+Step 4: Provide input to get output.

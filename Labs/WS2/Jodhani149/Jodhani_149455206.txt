@@ -1,0 +1,24 @@
+/**********************************************
+Workshop 2
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 05/06/2022
+**********************************************/
+
+By completing this workshop 2, I gained so much practice in creating classes, methods and arrays.
+
+I also gained various types of difficult operations and I handled them successfully. I practice many things which really helped me to understand the concepts of this workshop and overall great knowledge. also, the professor's lecture really helped me to successfully complete this workshop.
+
+Overall, I learn and practice creating classes, methods and arrays. also, I handled difficult operations about taxes during this workshop.
+
+
+Steps to run program:
+1.	Open the programs in eclipse.
+2.	For Task1 – go to workshop2 then double click on the IncomeTax.java file and press run button.
+3.	Select option 0 or 1 or 2 based on user requirement.
+4.	You will see the result or output.

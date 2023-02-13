@@ -1,0 +1,41 @@
+package Tasks;
+
+
+public class ReverseThread extends Thread 
+{
+    private static int cnt;
+
+    public ReverseThread(int val) 
+    {
+        cnt = val;
+        this.setName(String.valueOf(val));
+
+    }
+
+    public void run() 
+    {
+        cnt++;
+        if (cnt <= 51) 
+        {
+            ReverseThread thread = new ReverseThread(cnt);
+            thread.start();
+
+            try 
+            {
+                thread.join();
+                System.out.println("Hello from Thread! " + this.getName());
+                
+            }
+            catch (Exception err)
+            {
+            	err.printStackTrace();
+            }
+        }
+        else
+        {
+        	return;
+        }
+    }
+    
+    
+}

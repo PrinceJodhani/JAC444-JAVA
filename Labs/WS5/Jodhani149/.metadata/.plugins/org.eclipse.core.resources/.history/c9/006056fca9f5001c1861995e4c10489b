@@ -1,0 +1,242 @@
+package application;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.scene.layout.GridPane;
+
+public class Main extends Application {
+
+    File f;
+    int count = 0;
+
+    ArrayList<String> first_name = new ArrayList<>();
+    ArrayList<String> last_name = new ArrayList<>();
+    ArrayList<String> m_city = new ArrayList<>();
+    ArrayList<String> m_prv = new ArrayList<>();
+    ArrayList<String> m_postal = new ArrayList<>();
+
+    public void start(Stage primaryStage) 
+    {
+        GridPane m_root = new GridPane();
+        GridPane ButtonGr = new GridPane();
+        GridPane m_GrName = new GridPane();
+        GridPane m_AddGr = new GridPane();
+
+        m_root.setGridLinesVisible(false);
+        m_GrName.setGridLinesVisible(false);
+
+       
+        Text txt1 = new Text("First Name:");
+        Text txt2 = new Text("Last Name:");
+        Text txt3 = new Text("City:");
+        Text txt4 = new Text("Province:");
+        Text txt5 = new Text("Postal Code:");
+
+        TextField fld1 = new TextField();
+        TextField fld2 = new TextField();
+        TextField fld3 = new TextField();
+        TextField fld5 = new TextField();
+
+        
+        Button AddBtn = new Button("Add");
+        Button FirstBtn = new Button("First");
+        Button NextBtn = new Button("Next");
+        Button PreviousBtn = new Button("Previous");
+        Button LastBtn = new Button("Last");
+        Button UpdateBtn = new Button("Update");
+
+        AddBtn.setPrefWidth(90);
+        FirstBtn.setPrefWidth(90);
+        NextBtn.setPrefWidth(90);
+        PreviousBtn.setPrefWidth(90);
+        LastBtn.setPrefWidth(90);
+        UpdateBtn.setPrefWidth(90);
+
+        ChoiceBox<String> fld4 = new ChoiceBox();
+        fld4.setValue("Province");
+        fld4.getItems().addAll("NL", "PE", "NS", "NB", "QC", "ON", "MB", "SK", "AB", "BC", "YT", "NT", "NU");
+
+        m_root.setPadding(new Insets(10, 10, 10, 10));
+        m_GrName.setPadding(new Insets(10, 10, 10, 10));
+        m_AddGr.setPadding(new Insets(10, 10, 10, 10));
+        ButtonGr.setPadding(new Insets(10, 10, 10, 10));
+
+        m_GrName.setVgap(5);
+        m_GrName.setHgap(5);
+        ButtonGr.setVgap(5);
+        ButtonGr.setHgap(9);
+        m_AddGr.setVgap(5);
+        m_AddGr.setHgap(5);
+
+        m_root.setAlignment(Pos.TOP_LEFT);
+        ButtonGr.setAlignment(Pos.TOP_CENTER);
+
+        m_GrName.add(txt1, 1, 1);
+        m_GrName.add(fld1, 2, 1, 100, 1);
+        m_GrName.add(txt2, 1, 4);
+        m_GrName.add(fld2, 2, 4, 100, 1);
+
+        m_root.add(m_GrName, 1, 1);
+
+        m_AddGr.add(txt3, 1, 1);
+        m_AddGr.add(fld3, 2, 1);
+        m_AddGr.add(txt4, 3, 1);
+        m_AddGr.add(fld4, 4, 1);
+        m_AddGr.add(txt5, 5, 1);
+        m_AddGr.add(fld5, 6, 1);
+
+        m_root.add(m_AddGr, 1, 2);
+
+        ButtonGr.add(AddBtn, 1, 1);
+        ButtonGr.add(FirstBtn, 2, 1);
+        ButtonGr.add(NextBtn, 3, 1);
+        ButtonGr.add(PreviousBtn, 4, 1);
+        ButtonGr.add(LastBtn, 5, 1);
+        ButtonGr.add(UpdateBtn, 6, 1);
+
+        m_root.add(ButtonGr, 1, 3);
+
+        primaryStage.setTitle("Address Book");        
+        Scene scene = new Scene(m_root, 590, 210);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        
+        AddBtn.setOnAction( e -> 
+        {
+            System.out.println("ADD button pressed.");
+            storeInfo(fld1.getText(), fld2.getText(), fld3.getText(), fld4.getValue(), fld5.getText());
+        });
+  
+        FirstBtn.setOnAction(e -> {
+            System.out.println("FIRST button pressed.");
+            fld1.setText(first_name.get(0));
+            fld2.setText(last_name.get(0));
+            fld3.setText(m_city.get(0));
+            fld4.setValue(m_prv.get(0));
+            fld5.setText(m_postal.get(0));
+            count = 0;
+            String data = "First contact: " + first_name.get(0) + " " + last_name.get(0) + " " + m_city.get(0) + " " + m_prv.get(0) + " " + m_postal.get(0);
+            System.out.println(data);
+        });
+        
+        NextBtn.setOnAction(e -> {
+            count++;
+            System.out.println("Next button pressed.");
+            fld1.setText(first_name.get(count));
+            fld2.setText(last_name.get(count));
+            fld3.setText(m_city.get(count));
+            fld4.setValue(m_prv.get(count));
+            fld5.setText(m_postal.get(count));
+            String data = "Next contact: " + first_name.get(count) + " " + last_name.get(count) + " " + m_city.get(count) + " " + m_prv.get(count) + " " + m_postal.get(count);
+            System.out.println(data);
+        });
+        
+        PreviousBtn.setOnAction( e -> {
+            count--;
+            System.out.println("Previous button pressed.");
+            fld1.setText(first_name.get(count));
+            fld2.setText(last_name.get(count));
+            fld3.setText(m_city.get(count));
+            fld4.setValue(m_prv.get(count));
+            fld5.setText(m_postal.get(count));
+            String data = "Previous contact: " + first_name.get(count) + " " + last_name.get(count) + " " + m_city.get(count) + " " + m_prv.get(count) + " " + m_postal.get(count);
+            System.out.println(data);
+        });
+       
+        LastBtn.setOnAction( e -> {
+            System.out.println("Last button pressed.");
+            fld1.setText(first_name.get(first_name.size()-1));
+            fld2.setText(last_name.get(last_name.size()-1));
+            fld3.setText(m_city.get(m_city.size()-1));
+            fld4.setValue(m_prv.get(m_prv.size()-1));
+            fld5.setText(m_postal.get(m_postal.size()-1));
+            String data = "Last contact: " + first_name.get(first_name.size()-1) + " " + last_name.get(last_name.size()-1) + " " + m_city.get(m_city.size()-1) + " " + m_prv.get(m_prv.size()-1) + " " + m_postal.get(m_postal.size()-1);
+            System.out.println(data);
+        });
+        
+        UpdateBtn.setOnAction( e -> {
+            System.out.println("UPDATE button pressed.");
+            first_name.set(count, fld1.getText());
+            last_name.set(count, fld2.getText());
+            m_city.set(count, fld3.getText());
+            m_prv.set(count, fld4.getValue());
+            m_postal.set(count, fld5.getText());
+            String data = "Contact updated: " + fld1.getText() + " " + fld2.getText() + " " + fld3.getText() + " " + fld4.getValue() + " " + fld5.getText();
+            System.out.println(data);
+            fileWriting();
+        });
+    }
+
+    public void storeInfo(String firstName, String lastName, String City, String Province, String pcode)
+    {
+        first_name.add(firstName);
+        last_name.add(lastName);
+        m_city.add(City);
+        m_prv.add(Province);
+        m_postal.add(pcode);
+        String data = "Contact added: " + firstName + " " + lastName + " " + City + " " + Province + " " + pcode;
+        System.out.println(data);
+        count++;
+        fileWriting();
+    }
+
+    private void fileWriting() 
+    {
+        try 
+        {
+            f = new File ("ContactBook.txt");
+            if (f.createNewFile()) 
+            {
+                System.out.println("New File created.");
+            }
+            else 
+            {
+                System.out.println("File already exists.");
+            }
+        } 
+        catch (IOException e) 
+        {
+            System.out.println("Error!!");
+            e.printStackTrace();
+        }
+
+        try 
+        {
+            RandomAccessFile raf = new RandomAccessFile(f, "rw");
+            String[] str = new String[first_name.size()];
+            for (int i = 0; i < first_name.size(); i++) 
+            {
+                str[i] = first_name.get(i) + " " + last_name.get(i) + " " + m_city.get(i) + " " + m_prv.get(i) + " ";
+            }
+
+            for (int j = 0; j < first_name.size(); j++) 
+            {
+                raf.write(str[j].getBytes());
+                raf.write(m_postal.get(j).getBytes());
+                raf.writeBytes("\n"); 
+            }
+            raf.close();
+        } 
+        catch(IOException ex) 
+        {
+            System.out.println(ex.toString());
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        launch(args);
+    }
+
+}

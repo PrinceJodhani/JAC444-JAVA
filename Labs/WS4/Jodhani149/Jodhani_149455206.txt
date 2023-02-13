@@ -1,0 +1,22 @@
+/**********************************************
+Workshop 4
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 19/06/2022
+**********************************************/
+
+In this workshop 4, I have learned concepts like exception handling, polymorphism, and Java I/O,.
+
+I have fixed many bugs and errors during this workshop. I have done exception handling in this workshop. I also implemented the random function. professor's lecture is very good to understand concepts and by watching lecture I can sucessfully done my workshop 4. I have implemented concepts like polymorphism and Java I/O.
+
+Steps to run pragram:
+
+1 - For task 1: go to the hangman.java file and enter values.
+2 - click on run to run this task 1 program.
+3 - For Task 2: go to the Counter.java file.
+4 - clcik on run to run the task 2 program.

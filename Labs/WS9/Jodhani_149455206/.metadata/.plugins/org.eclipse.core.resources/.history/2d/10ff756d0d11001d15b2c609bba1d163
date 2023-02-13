@@ -1,0 +1,160 @@
+package Task;
+
+
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.ConnectException;
+import java.net.Socket;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+
+public class user extends JFrame
+{
+	private static final long m_serialVersion = 1L;
+	
+	private JTextArea str_msg = new JTextArea();
+	private PrintWriter print_Server;
+	private JTextField new_strname = new JTextField();
+	private JTextField new_msg = new JTextField();
+	
+	class newMessage implements Runnable 
+	{
+		  private Socket socket;
+	
+		  public newMessage(Socket s)
+		  {
+		   socket = s;
+		   
+		   Thread thread = new Thread(this);
+		   thread.start();
+		  }
+		  
+		  public void run()
+		  {
+			  try 
+			  {
+				  try (Scanner getText = new Scanner(socket.getInputStream())) 
+				  {
+					while(true) 
+					{
+						  str_msg.append(getText.nextLine() + "\n");
+					}
+				  }
+				  
+			  }
+			  catch (IOException e) 
+			  {
+				  e.printStackTrace();
+			  }
+			  catch (NoSuchElementException e) 
+			  {
+				  System.out.println("Server is closed");
+			  }
+
+		  }
+		  
+	}
+	 
+	 public user() throws ConnectException 
+	 {
+		 try 
+		 {
+			 Socket socket = new Socket("localhost", 8000);
+			 
+			 if (socket.isConnected()) 
+				 str_msg.append("Connected succesfully, running on: "+ socket + "\n");
+			 print_Server = new PrintWriter(socket.getOutputStream());
+			 new newMessage(socket);
+			 
+		 } 
+		 catch (IOException e)
+		 {
+			 str_msg.append("Problem to connect to server / server not found!\n");
+		 } 		 
+		 
+		 setLayout(new BorderLayout(10, 10));
+		 
+		 JPanel mainPan = new JPanel(new BorderLayout(10, 10));
+		 mainPan.setBorder(new EmptyBorder(15, 15, 15, 15));
+		 str_msg.setEditable(false);
+		 
+		 JScrollPane scroll_pane = new JScrollPane(str_msg);
+		 mainPan.add(scroll_pane, BorderLayout.CENTER);
+		 
+		 JButton m_btn = new JButton("Send");
+		 m_btn.setBounds(10,10,10,10);
+		 
+		 JPanel m_panel = new JPanel(new GridLayout(3, 5, 5, 5));
+		 
+		 JPanel str_name = new JPanel(new BorderLayout(10, 10));
+		 str_name.add(new JLabel("Name "), BorderLayout.WEST);     
+		 str_name.add(new_strname, BorderLayout.CENTER);
+		 
+		 JPanel m_txt = new JPanel(new BorderLayout(5, 5));
+		 m_txt.add(new JLabel("Text "), BorderLayout.WEST);
+		 m_txt.add(new_msg, BorderLayout.CENTER);
+		 
+		 m_panel.add(str_name);
+		 m_panel.add(m_txt);
+		 m_panel.add(m_btn);
+		 
+		 mainPan.add(m_panel, BorderLayout.SOUTH);
+		 add(mainPan, BorderLayout.CENTER);
+		 setVisible(true);
+		 setSize(600, 400);
+		 setTitle("Client");
+		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 setLocationRelativeTo(null);
+		 
+		 ActionListener sendMsg = new ActionListener() 
+		 {
+
+			 @Override
+			 public void actionPerformed(ActionEvent e) 
+			 {
+				 try
+				 { 
+					 if (!new_msg.getText().equals("") && !new_strname.getText().equals("") ) 
+					 {
+						 print_Server.println(new_strname.getText() + ": " + new_msg.getText());
+						 new_msg.setText("");
+						 print_Server.flush();
+						 new_msg.requestFocus();
+					 }
+					 else
+					 {
+						 JOptionPane.showMessageDialog(null, "Please put a Name and a Text", "Warning", JOptionPane.WARNING_MESSAGE);
+					 }
+				 } 
+				 catch (NullPointerException n)
+				 {
+					 JOptionPane.showMessageDialog(null, "Server is not running, client closing..."); System.exit(0);};
+			 }
+		 };
+		 
+		 m_btn.addActionListener(sendMsg);
+		 new_msg.addActionListener(sendMsg);
+		  	
+	 }
+ 
+
+	 public static void main(String[] args) throws ConnectException
+	 {
+		 new user();
+	 }
+}

@@ -1,0 +1,13 @@
+INDEX VERSION 1.131+D:\SENECA SEM 4=====================\JAC444\Labs\Lab5\.metadata\.plugins\org.eclipse.jdt.core
+1352315667.index
+1306354549.index
+1865797976.index
+1111027547.index
+2527297847.index
+67474433.index
+1509799344.index
+2977662527.index
+307914094.index
+3946243126.index
+3432691770.index
+3531062164.index

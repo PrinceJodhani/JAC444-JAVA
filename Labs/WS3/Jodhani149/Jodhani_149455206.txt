@@ -1,0 +1,23 @@
+/**********************************************
+Workshop 3
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 12/06/2022
+**********************************************/
+
+In this workshop 3, I have learned many things about concepts like exception handling, polymorphism, and abstraction.
+
+I have done many practices to complete this workshop and also I learned a lot from the professor's lecture. this way, I can successfully complete workshop 3. I have implemented exception handling and creating abstract methods in this workshop. this workshop taught me many lessons. 
+
+
+Steps to run pragram:
+
+1 - For task 1: go to the testingProg.java file and enter values.
+2 - click on run to run this task 1 program.
+3 - For Task 2: go to the TestingProg.java file.
+4 - clcik on run to run the task 2 program.

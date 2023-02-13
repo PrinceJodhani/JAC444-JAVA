@@ -1,0 +1,27 @@
+/**********************************************
+Workshop 10
+Course: JAC444 - 4th
+Last Name: Jodhani
+First Name: Prince
+ID: 149455206
+Section: NEE
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature : Prince
+Date: 05/08/2022
+**********************************************/
+
+By completing this workshop 10, I practiced previous concepts as well as new concepts like comparable interface and clonable interface.
+
+I applied these two, comparable interfaces and clonable interfaces in this workshop and it is very helpful to learn. Professor's lecture is very helpful to practice and complete this workshop.
+
+throughout all these workshops, the professor's lectures really are very helpful to complete all my workshops. without lectures, I cannot complete these all workshops. Thanks to professor for teaching us.
+
+I learned many java concepts from my professor throughout this course. got a great learning experience. Thanks.
+
+
+Steps to Run Program:
+
+Step 1: For Task 1, Go to Task 1 package, click on Tester.java and run.
+Step 2: Give appropriate input to get output.
+Step 3: For Task 2, Go to Task 2 package, click on Bank.java and run.
+Step 4: Gove appropriate input to get output.

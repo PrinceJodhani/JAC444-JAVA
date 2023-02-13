@@ -1,0 +1,95 @@
+package Tasks;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Test {
+	
+    private static int twT = 2000;
+    private static double[][] matx1 = new double[twT][twT];;
+    private static double[][] matx2 = new double[twT][twT];;
+
+    public static void main(String[] args) throws InterruptedException {
+    	
+    	long startT, endT ;
+    	int option = 0;
+    	Scanner sc = new Scanner(System.in);
+    	boolean TF = true;
+    	
+	    	do 
+	    	{
+	    	   	try 
+	    	   	{
+	    		System.out.println("Please select an option");
+		    	System.out.println("1 - Matrix Addition");
+		    	System.out.println("2 - Reverse Thread");
+		    	System.out.print("My option is: ");
+		    	option = sc.nextInt();
+		    	System.out.print("\n");
+		    	
+		    	if (option == 1) 
+		    	{
+		    		startT = System.currentTimeMillis();
+		            for(int i = 0; i < matx1.length; i++) 
+		            {
+		                for(int j = 0; j < matx2[i].length; j++) {
+		                    matx1[i][j] = Math.random();
+		                    matx2[i][j] = Math.random();
+		                }
+		            }
+
+		            Thread thrd1 = new Thread(String.valueOf(MatrixAddition.parallelAddMatrix(matx1, matx2)));
+		            Thread thrd2 = new Thread(String.valueOf(MatrixAddition.parallelAddMatrix(matx1, matx2)));
+		            Thread thrd3 = new Thread(String.valueOf(MatrixAddition.parallelAddMatrix(matx1, matx2)));
+		            Thread thrd4 = new Thread(String.valueOf(MatrixAddition.parallelAddMatrix(matx1, matx2)));
+		            thrd1.start();
+		            thrd2.start();
+		            thrd3.start();
+		            thrd4.start();
+		            thrd1.join();
+		            thrd2.join();
+		            thrd3.join();
+		            thrd4.join();
+		            endT = System.currentTimeMillis();
+		            System.out.println("It passed: " + (endT - startT) + " milliseconds using parallelAddMatrix");
+		            
+		            startT = System.currentTimeMillis();
+		            MatrixAddition.sequentialAddMatrix(matx1, matx2);
+		            
+		            endT = System.currentTimeMillis();
+		            System.out.println("It passed: " + (endT - startT) + " milliseconds using sequentialAddMatrix");
+		           
+		            TF = false;
+		    		
+		    	} 
+		    	else if (option == 2) 
+		    	{
+		    		TF = false;
+		            ReverseThread thread = new ReverseThread(1);
+		            thread.start();
+		    	}
+		    	else 
+		    	{
+		    		System.out.println("Please type a valid option");
+		    		TF = true;
+		    	}
+		    	
+		   		
+		    	}
+	    	   	catch(InputMismatchException err) 
+	    	   	{
+		    		System.out.println("Please type a number\n");
+		    		sc.next();
+		    		
+		    	}
+	    	   	catch(Exception e) 
+	    	   	{
+		    		e.printStackTrace();
+		    	}
+	    		
+	    	} while(TF);
+
+        sc.close();
+        
+    }
+}

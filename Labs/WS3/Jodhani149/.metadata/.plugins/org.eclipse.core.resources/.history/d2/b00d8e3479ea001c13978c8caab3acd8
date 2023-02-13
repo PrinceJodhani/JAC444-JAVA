@@ -1,0 +1,29 @@
+package Task2;
+
+public class TestingProg2 
+{
+	 public static void main(String[] args) 
+	 {
+	        System.out.println("\nTriangle\n");
+	        
+	        try {
+	            Triangle2 t1 = new Triangle2(5, 5, 5);
+	            
+	            System.out.println("Area = " + t1.getArea());
+	            System.out.println("Perimeter = " + t1.getPerimeter());
+	            
+	            Triangle2 t2 = new Triangle2(0, 8, 9);
+	            
+	            System.out.println("Area = " + t2.getArea());
+	            System.out.println("Perimeter = " + t2.getPerimeter());
+	        }
+	        catch (Triangle2.TriangleException except) 
+	        {
+	            System.out.println("\nIllegal triangle\n");
+	            System.out.println("Side1: " + except.getS1());
+	            System.out.println("Side2: " + except.getS2());
+	            System.out.println("Side3: " + except.getS3());
+	            except.printStackTrace();
+	        }
+	    }
+}
